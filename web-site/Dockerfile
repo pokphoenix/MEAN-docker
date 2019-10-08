@@ -37,7 +37,7 @@
 #EXPOSE 3000
 #CMD [ "node", "server" ]
 
-FROM node
+FROM node:10-alpine
 
 ENV INSTALL_PATH /usr/src/app
 
