@@ -38,11 +38,14 @@
 #CMD [ "node", "server" ]
 
 FROM node
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-COPY package.json /usr/src/app
+
+ENV INSTALL_PATH /usr/src/app
+
+RUN mkdir -p $INSTALL_PATH
+WORKDIR $INSTALL_PATH
+COPY package.json $INSTALL_PATH
 #RUN npm cache clean
 RUN npm install
-COPY . /usr/src/app
+COPY . $INSTALL_PATH
 EXPOSE 3000
 CMD ["npm","start"]
